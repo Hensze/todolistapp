@@ -18,7 +18,6 @@ function App() {
       dispatch(setUser(currentLogUser));
     }
   });
-
   return (
     <BrowserRouter>
       <Routes>

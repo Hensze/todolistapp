@@ -14,11 +14,11 @@ export const defaultUser: userType = {
   bio: "",
 };
 
-type TInitialState = {
+type InitialStateType = {
   curentUser: userType | null;
 };
 
-const initialState: TInitialState = {
+const initialState: InitialStateType = {
   // user:[],
   curentUser: null,
   // currentSelectedUser:null
@@ -33,7 +33,7 @@ const userSlice = createSlice({
 
       // store user in local storage
 
-      localStorage.setItem("userStorageName", JSON.stringify(user));
+      localStorage.setItem(userStorageName, JSON.stringify(user));
       // set login user
       state.curentUser = user;
     },

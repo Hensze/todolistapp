@@ -171,7 +171,7 @@ const addUserToCollection = async (
 };
 // get user information
 
-const getUserInfo = async (id: string): Promise<userType> => {
+const getUserInfo = async (id: string): Promise<userType | null> => {
   const userRef = doc(db, userColl, id);
   const user = await getDoc(userRef);
   if (user.exists()) {
@@ -194,7 +194,7 @@ const getUserInfo = async (id: string): Promise<userType> => {
     };
   } else {
     toastErr("getUserInfo:user not found");
-    return defaultUser;
+    return null;
   }
 };
 // update user info
