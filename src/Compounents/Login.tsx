@@ -33,7 +33,6 @@ const Login = () => {
   };
   const handleSignin = () => {
     const data = { email, password };
-    console.log(data);
     Be_signIn(data, setSignInLoading, reset, goTo, dispatch);
     auth(data, Be_signIn, setSignInLoading);
   };

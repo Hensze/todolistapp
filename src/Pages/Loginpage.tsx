@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Login from "../Compounents/Login";
+import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../Redux/hooks";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const { curentUser } = useAppSelector((state) => state.user);
+
+  useEffect(() => {
+    if (!curentUser) {
+      navigate("/auth");
+    }
+  }, [curentUser]);
   return (
     <div className=" h-[100vh] flex items-center justify-center p-10">
       {/*login */}

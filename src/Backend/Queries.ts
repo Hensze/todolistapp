@@ -112,6 +112,7 @@ export const Be_signIn = (
       goTo("/dashboard");
     })
     .catch((err) => {
+      console.log(err);
       CatchErr(err);
       setLoading(false);
     });
@@ -142,7 +143,7 @@ export const Be_signOut = (
 };
 
 export const getStorageUser = () => {
-  const usr = localStorage.getItem("userStorageName");
+  const usr = localStorage.getItem(userStorageName);
   if (usr) return JSON.parse(usr);
   else return null;
 };

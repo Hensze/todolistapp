@@ -14,7 +14,7 @@ type taskListSliceType = {
   currentTaskList: taskListType[];
 };
 
-const initialState = {
+const initialState: taskListSliceType = {
   currentTaskList: [],
 };
 

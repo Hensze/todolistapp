@@ -1,10 +1,19 @@
-import React from "react";
-import { Outlet } from "react-router";
+import React, { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import Header from "../Compounents/Header";
+import { useAppSelector } from "../Redux/hooks";
 
 type Props = {};
 
 function Layout({}: Props) {
+  const navigate = useNavigate();
+  const { curentUser } = useAppSelector((state) => state.user);
+
+  useEffect(() => {
+    if (!curentUser) {
+      navigate("/auth");
+    }
+  }, [curentUser]);
   return (
     <div className="h-[100vh] flex flex-col">
       <Header />

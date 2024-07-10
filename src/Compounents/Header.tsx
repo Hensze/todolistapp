@@ -18,7 +18,7 @@ function Header() {
   const [logoutLoading, setLogoutLoading] = useState(false);
   const goTo = useNavigate();
   const dispatch = useDispatch();
-  const curentUser = useSelector((state: RootState) => state.user.currenUser);
+  const curentUser = useSelector((state: RootState) => state.user.curentUser);
   const usr = getStorageUser();
 
   useEffect(() => {
@@ -95,7 +95,7 @@ function Header() {
         )}
 
         <div className="group relative">
-          <UserHeaderProfile user={curentUser} />
+          {curentUser && <UserHeaderProfile user={curentUser} />}{" "}
           <div className="absolute pt-5 hidden group-hover:block w-full min-w-max">
             <ul className="w-full bg-white overflow-hidden rounded-md shadow-md text-gray-700 pt-1">
               <p
